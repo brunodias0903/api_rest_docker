@@ -1,6 +1,6 @@
-import express from "express";
 import { initializeDatabase } from "@/models/Company";
 import companyRoutes from "@/routes/companyRoutes";
+import express from "express";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +12,6 @@ app.use("/", companyRoutes);
 const startServer = async () => {
   try {
     await initializeDatabase();
-    console.log("Database initialized successfully");
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);

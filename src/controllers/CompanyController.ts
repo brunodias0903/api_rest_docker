@@ -14,7 +14,7 @@ export class CompanyController {
       }
 
       const company: Company = { name, cnpj, email, phone };
-      const newCompany = await createCompany(company);
+      const newCompany = createCompany(company);
 
       res.status(201).json(newCompany);
     } catch (error: any) {
@@ -31,7 +31,7 @@ export class CompanyController {
 
   public async getAll(_req: Request, res: Response): Promise<void> {
     try {
-      const companies = await getAllCompanies();
+      const companies = getAllCompanies();
       res.status(200).json(companies);
     } catch (error) {
       res.status(500).json({ error: "Failed to retrieve companies" });
